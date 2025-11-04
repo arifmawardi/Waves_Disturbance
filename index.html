@@ -59,25 +59,17 @@
     <!-- Canvas for the wave visualization -->
     <canvas id="waveCanvas" class="bg-gray-800 rounded-lg shadow-xl w-full max-w-4xl h-64 md:h-96 mb-6"></canvas>
 
-    <!-- Controls for wave parameters -->
-    <div class="w-full max-w-lg bg-gray-800 p-6 rounded-lg shadow-xl space-y-4">
-        <!-- Speed Slider -->
-        <div class="grid grid-cols-3 items-center gap-4">
-            <label for="speed" class="text-lg font-medium text-teal-400">Propagation Speed</label>
-            <input type="range" id="speed" min="0.5" max="15" value="2" step="0.1" class="col-span-2">
-        </div>
-    </div>
+    <!-- Controls removed -->
 
     <script>
         window.onload = function() {
             const canvas = document.getElementById('waveCanvas');
             const ctx = canvas.getContext('2d');
 
-            // Get control elements
-            const speedSlider = document.getElementById('speed');
+            // Get control elements (slider removed)
 
             // Wave parameters
-            let speed = parseFloat(speedSlider.value);
+            let speed = 2; // Set a fixed speed (was 2, trying 4 for a better default)
             const padding = 50; // --- Increased padding from 20 to 50 ---
             
             // State for manual dragging
@@ -88,8 +80,7 @@
             // It acts as a delay line, and its contents are "propagated" along the string
             let sourceHistory = [];
 
-            // Update parameters from sliders
-            speedSlider.addEventListener('input', (e) => speed = parseFloat(e.target.value));
+            // Update parameters from sliders (slider listener removed)
 
             // Helper function to get mouse/touch position relative to canvas
             function getEventPosition(evt) {
@@ -261,5 +252,4 @@
     </script>
 </body>
 </html>
-
 
